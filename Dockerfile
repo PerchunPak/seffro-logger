@@ -26,20 +26,9 @@ RUN pip --no-cache-dir install -U pip && \
 COPY src/ src/
 
 
-FROM python:3.12-slim AS git
-# Write version for the Sentry 'release' option
-RUN apt-get update && \
-    apt-get install git -y --no-install-recommends
-COPY .git .git
-RUN git rev-parse HEAD > /commit.txt
-
-
 FROM base AS final
 
-COPY --from=git /commit.txt commit.txt
 RUN chown -R 5000:5000 /app
 USER container
 
-ENV SENTRY_ENVIRONMENT production
-
-CMD ["dumb-init", "python", "-m", "src"]
+CMD ["dumb-init", "python", "-Om", "src"]
