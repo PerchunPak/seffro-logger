@@ -4,6 +4,8 @@
 
 Archives messages of a dude, who has autodelete
 
+![Screenshot of bot](/screenshot.png)
+
 ## Thanks
 
 This project was generated with [python-template](https://github.com/PerchunPak/python-template).
