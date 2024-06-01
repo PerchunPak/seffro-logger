@@ -18,6 +18,13 @@ async def log_seffro(event: hikari.GuildMessageCreateEvent) -> None:
         attachments=event.message.attachments,
     )
 
+    try:
+        await event.message.delete()
+    except hikari.errors.NotFoundError:
+        print("Siffro was first one who deleted the message!")
+    except hikari.errors.ForbiddenError:
+        await event.message.respond("(no permission to delete Seffro's message)")
+
 
 if __name__ == "__main__":
     bot.run()
