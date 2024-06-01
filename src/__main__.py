@@ -12,7 +12,10 @@ async def log_seffro(event: hikari.GuildMessageCreateEvent) -> None:
     if event.author_id != SEFFRO_ID:
         return
 
-    await event.message.respond(event.content)
+    await event.message.respond(
+        event.content,
+        attachments=event.message.attachments,
+    )
 
 
 if __name__ == "__main__":
