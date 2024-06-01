@@ -12,7 +12,7 @@ async def log_seffro(event: hikari.GuildMessageCreateEvent) -> None:
     if event.author_id != SEFFRO_ID:
         return
 
-    print("Seffro wrote: ", event.content)
+    print("Seffro wrote:", event.content)
     await event.message.respond(
         event.content,
         attachments=event.message.attachments,
