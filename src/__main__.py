@@ -15,6 +15,7 @@ async def log_seffro(event: hikari.GuildMessageCreateEvent) -> None:
     await event.message.respond(
         event.content,
         attachments=event.message.attachments,
+        reply=event.message.referenced_message,
     )
 
     try:
